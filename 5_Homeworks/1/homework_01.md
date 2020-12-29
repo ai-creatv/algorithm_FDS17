@@ -9,15 +9,15 @@
 ```javascript
 function solution(n, m) {
     let answer = [];
-    const maxNum = Math.max(n,m);
     const minNum = Math.min(n,m);   
+    const maxNum = Math.max(n,m);
 
     answer = [gcd(minNum, maxNum),lcm(minNum, maxNum)]
     return answer;
 }
 
 const gcd = (minNum, maxNum) => {
-    return (minNum % maxNum) === 0 ? maxNum : gcd(maxNum, minNum % maxNum);
+    return (maxNum % minNum === 0) ? minNum : gcd(maxNum % minNum, minNum);
 }
 const lcm = (minNum, maxNum) => {
     return minNum * maxNum / gcd(minNum, maxNum);
