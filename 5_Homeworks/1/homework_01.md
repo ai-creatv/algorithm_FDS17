@@ -1,4 +1,3 @@
-
 # 프로그래머스 스킬 체크 1단계
 
 ![화면 캡처 2020-12-29 114747](https://user-images.githubusercontent.com/69497936/103255511-e93a4c00-49cc-11eb-8a2e-4eec7187c9d9.jpg)
