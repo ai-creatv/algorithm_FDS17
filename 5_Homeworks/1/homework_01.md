@@ -13,15 +13,15 @@ function solution(n, m) {
     const maxNum = Math.max(n,m);
     const minNum = Math.min(n,m);   
 
-    const gcd = (minNum, maxNum) => {
-        return (minNum % maxNum) === 0 ? maxNum : gcd(maxNum, minNum % maxNum);
-    }
-    const lcm = (minNum, maxNum) => {
-        return minNum * maxNum / gcd(minNum, maxNum);
-    }
-
-    answer = [gcd(n,m),lcm(n,m)]
+    answer = [gcd(minNum, maxNum),lcm(minNum, maxNum)]
     return answer;
+}
+
+const gcd = (minNum, maxNum) => {
+    return (minNum % maxNum) === 0 ? maxNum : gcd(maxNum, minNum % maxNum);
+}
+const lcm = (minNum, maxNum) => {
+    return minNum * maxNum / gcd(minNum, maxNum);
 }
 ```
 
