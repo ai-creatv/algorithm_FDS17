@@ -5,6 +5,7 @@
 
 
 ## #1 최대공약수, 최소공배수
+주어진 두 숫자의 최대공약수와 최소공배수 구하기
 
 ```javascript
 function solution(n, m) {
@@ -24,11 +25,9 @@ function solution(n, m) {
 }
 ```
 
-주어진 두 숫자의 최대공약수와 최소공배수 구하기
-
-
 
 ## #2 완주하지 못한 선수
+participant에서 completion에 없는, 즉 완주하지 못한 선수 구하기
 
 ```javascript
 function solution(participant, completion) {
@@ -41,5 +40,3 @@ function solution(participant, completion) {
     }
 }
 ```
-
-participant에서 completion에 없는, 즉 완주하지 못한 선수 구하기
