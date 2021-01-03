@@ -42,4 +42,8 @@ class DoublyLinkedList {
     print() {
         
     }
+
+    printInv() {
+        
+    }
 }
