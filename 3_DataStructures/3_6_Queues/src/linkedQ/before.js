@@ -6,28 +6,10 @@ class Node {
     }
 }
 
-class DoublyLinkedListForQueue {
+class LinkedQueue {
     constructor() {
         this.head = null;
         this.tail = null;
-    }
-    
-    isEmpty() {
-    }
-
-    append(value) {
-    }
-
-    accessHead() {
-    }
-
-    removeHead() {
-    }
-}
-
-class LinkedQueue {
-    constructor() {
-        
     }
 
     put(value) {
