@@ -6,122 +6,74 @@ class ArrayList {
     }
     
     isEmpty() {
-        if (this.length === 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return this.length === 0 ? true : false;
     }
 
     prepend(value) {
-        if (this.length === this.capacity) {
-            this.capacity *= 2;
-            const newArray = new Int32Array(this.capacity);
-            
-            for (let i = 0; i < this.length; i++) {
-                newArray[i + 1] = this.array[i];
-            }
-
-            this.array = newArray;
-        }
-        else {
-            for (let i = this.length - 1; i >= 0; i--) {
-                this.array[i + 1] = this.array[i];
-            }
-        }
-
-        this.array[0] = value;
-        this.length++;
+        this.insert(0, value);
     }
 
     append(value) {
-        if (this.length === this.capacity) {
-            this.capacity *= 2;
-            const newArray = new Int32Array(this.capacity);
-            
-            for (let i = 0; i < this.length; i++) {
-                newArray[i] = this.array[i];
-            }
-
-            this.array = newArray;
-        }
-
-        this.array[this.length] = value;
-        this.length++;
+        this.insert(this.length, value);
     }
 
     setHead(index) {
-        if (index > this.length) {
-            return false;
+        if (index < this.length) {
+            this.array = this.array.slice(index)
+            this.capacity -= index;
+            this.length -= index;
         }
-
-        this.array = this.array.subarray(index, this.capacity)
-        this.length = this.length - index;
-        this.capacity = this.capacity - index;
-
-        return true;
     }
 
     access(index) {
-        if (index > this.length) {
+        if (index >= this.length) {
             return undefined;
         }
         return this.array[index];
     }
 
     insert(index, value) {
-        if (index > this.length) {
-            return false;
-        }
-
         if (this.length === this.capacity) {
             this.capacity *= 2;
             const newArray = new Int32Array(this.capacity);
-            
             for (let i = 0; i < index; i++) {
                 newArray[i] = this.array[i];
             }
-
-            for (let i = index + 1; i < this.length; i++) {
+            for (let i = index; i < this.length; i++) {
                 newArray[i + 1] = this.array[i];
             }
-            
             this.array = newArray;
-        }
-        else {
+        } else {
             for (let i = this.length - 1; i >= index; i--) {
                 this.array[i + 1] = this.array[i];
             }
         }
-
         this.array[index] = value;
         this.length++;
-
-        return true;
     }
 
     remove(index) {
-        if (index > this.length) {
+        if (index >= this.length) {
             return false;
         }
 
-        for (let i = index; i < this.length - 1; i++) {
-            this.array[i] = this.array[i + 1];
+        for (let i = index + 1; i < this.length; i++) {
+            this.array[i - 1] = this.array[i];
         }
         this.length--;
-
         return true;
     }
 
     print() {
         let s = '';
         for (let i = 0; i < this.length; i++) {
-            s += `${this.array[i]} `;
+            s += this.array[i] + ' ';
         }
-        console.log(`[${s}]`);
+        console.log(s);
     }
 }
+
+
 
 myList = new ArrayList(8);
 myList.print();
